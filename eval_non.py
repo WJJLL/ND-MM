@@ -119,9 +119,9 @@ test_loader = torch.utils.data.DataLoader(test_set, batch_size=args.batch_size, 
 test_size = len(test_set)
 
 
-noise = np.load('{}/mim_tg_-1_{}_{}.npy'.format(args.save_dir,args.num_models,args.src))
+noise = np.load('{}/mim_tg_-1.npy'.format(args.save_dir))
 noise = torch.as_tensor(noise).cuda()
-logger.info('{}/mim_tg_-1_{}_{}.npy'.format(args.save_dir,args.num_models,args.src))
+logger.info('{}/mim_tg_-1.npy'.format(args.save_dir))
 
 fool=0
 def add_noise(img):

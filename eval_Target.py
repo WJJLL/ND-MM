@@ -138,8 +138,8 @@ for idx, target in enumerate(targets):
     test_size = len(test_set)
     print('Test data size:', test_size)
 
-    noise = np.load('{}/mim_tg_{}_{}_{}.npy'.format(args.save_dir, target, args.num_models, args.src))
-    logger.info('{}/mim_tg_{}_{}_{}.npy'.format(args.save_dir, target, args.num_models, args.src))
+    noise = np.load('{}/mim_tg_{}.npy'.format(args.save_dir, target))
+    logger.info('{}/mim_tg_{}.npy'.format(args.save_dir, target))
 
     noise = torch.as_tensor(noise).cuda()
 

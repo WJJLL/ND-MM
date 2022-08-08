@@ -126,8 +126,8 @@ def parse_arguments():
     parser.add_argument('--match_target', type=int, default=24, help='Target Domain samples')
     parser.add_argument('--lr_w', type=float, default=0.003, help='learning rate of W')
     parser.add_argument('--lam', type=float, default=1, help='learning rate of W')
-    parser.add_argument('--batch_size', type=int, default=32, help='Number of trainig samples/batch')
-    parser.add_argument('--epochs', type=int, default=4, help='Number of training epochs')
+    parser.add_argument('--batch_size', type=int, default=20, help='Number of trainig samples/batch')
+    parser.add_argument('--epochs', type=int, default=5, help='Number of training epochs')
     parser.add_argument('--eps', type=int, default=10, help='Perturbation Budget during training, eps')
     parser.add_argument('--save_dir', type=str, default='result', help='Directory to save generators')
     parser.add_argument('--ngpu', type=int, default=1,
@@ -293,8 +293,7 @@ def main():
     for epoch in range(args.epochs):
         noise, W = train(train_loader, model_pool, noise, epoch, optimizer, criterion, args, W)
 
-    np.save(args.save_dir + "/mim_tg_{}_{}_{}".format(args.match_target, args.num_models, args.src),
-            noise.cpu().data.numpy())
+    np.save(args.save_dir + "/mim_tg_{}".format(args.match_target), noise.cpu().data.numpy())
 
 
 if __name__ == '__main__':

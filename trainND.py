@@ -77,8 +77,8 @@ def normalize(x):
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Transferable Targeted Perturbations')
     parser.add_argument('--match_target', type=int, default=24, help='Target Domain samples')
-    parser.add_argument('--batch_size', type=int, default=32, help='Number of trainig samples/batch')
-    parser.add_argument('--epochs', type=int, default=3, help='Number of training epochs')
+    parser.add_argument('--batch_size', type=int, default=20, help='Number of trainig samples/batch')
+    parser.add_argument('--epochs', type=int, default=2, help='Number of training epochs')
     parser.add_argument('--eps', type=int, default=10, help='Perturbation Budget during training, eps')
     parser.add_argument('--KL', action='store_true', help='Apply KL instead of ND')
     parser.add_argument('--save_dir', type=str, default='result', help='Directory to save generators')
@@ -217,7 +217,7 @@ def main():
 
     for epoch in range(args.epochs):
          noise = train(train_loader, model_pool, noise, epoch, optimizer, criterion,args)
-    np.save(args.save_dir + "/mim_tg_{}_{}_{}".format(args.match_target, args.num_models,args.src), noise.cpu().data.numpy())
+    np.save(args.save_dir + "/mim_tg_{}".format(args.match_target), noise.cpu().data.numpy())
 
 if __name__ == '__main__':
     main()
