@@ -1,5 +1,5 @@
-# ND-MM
-Exploring Non-Target Knowledge for Improving Ensemble Universal Adversarial Attacks (AAAI-2023 Oral)
+# ND-MM (AAAI-2023 Oral)
+Exploring Non-Target Knowledge for Improving Ensemble Universal Adversarial Attacks 
 ## Setup
 python=3.8.12
 torch=1.4.0
